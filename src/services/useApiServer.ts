@@ -12,7 +12,9 @@ export function useApiServer<T>() {
     setState((prev) => ({ ...prev, loading: true, error: null, data: null }));
 
     try {
-      const response = await fetch(`${import.meta.env.API_URL}${endpoint}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}${endpoint}`
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
