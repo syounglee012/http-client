@@ -1,6 +1,6 @@
 import { useApiServer } from "./services/useApiServer";
 import type { ApiResponse } from "./types/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,6 +11,17 @@ function App() {
     fetchData();
     setCount((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    if (data?.redirect && data?.url) {
+      // Redirect after 3 seconds
+      const timer = setTimeout(() => {
+        window.location.href = data.url!;
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [data]);
 
   const handleReset = () => {
     setCount(0);

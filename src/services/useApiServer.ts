@@ -16,6 +16,11 @@ export function useApiServer<T>() {
         `${import.meta.env.VITE_API_URL}${endpoint}`
       );
 
+      if (response.status === 302) {
+        window.location.href = response.headers.get("Location") || "";
+        return;
+      }
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

@@ -2,6 +2,8 @@ export interface ApiResponse {
   message: string;
   status: string;
   path: string;
+  redirect?: boolean;
+  url?: string;
   data: {
     timestamp: string;
     server: string;
