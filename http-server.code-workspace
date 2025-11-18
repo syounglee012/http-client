@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "../http-server"
+    },
+    {
+      "path": "."
+    },
+    {
+      "path": "../api-gateway"
+    }
+  ],
+  "settings": {}
+}
